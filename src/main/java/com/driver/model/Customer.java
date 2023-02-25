@@ -22,28 +22,11 @@ public class Customer {
 
     }
 
-
     public int getCustomerId() {
         return customerId;
     }
 
     public void setCustomerId(int customerId) {
-        this.customerId = customerId;
-    }
-
-    public List<TripBooking> getTripBookingList() {
-        return tripBookingList;
-    }
-
-    public void setTripBookingList(List<TripBooking> tripBookingList) {
-        this.tripBookingList = tripBookingList;
-    }
-
-    public int getId() {
-        return customerId;
-    }
-
-    public void setId(int customerId) {
         this.customerId = customerId;
     }
 
@@ -61,5 +44,13 @@ public class Customer {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public List<TripBooking> getTripBookingList() {
+        return tripBookingList;
+    }
+
+    public void setTripBookingList(List<TripBooking> tripBookingList) {
+        this.tripBookingList = tripBookingList;
     }
 }

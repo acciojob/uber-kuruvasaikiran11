@@ -3,35 +3,33 @@ package com.driver.model;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "tripBooking")
 public class TripBooking {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
-    private String fromLocation;
-    private String toLocation;
-    private int distance;
-    private int bill;
+    private Integer tripBookingId;
+
+    private String fromLocation; //The start location of the trip
+    private String toLocation; //The end location of the trip
+    private int distanceInKm;
+
     @Enumerated(value = EnumType.STRING)
-    private TripStatus tripStatus;
+    private TripStatus status;
+    private int bill;
 
     @ManyToOne
     @JoinColumn
-    Customer customer;
+    private Customer customer;
 
     @ManyToOne
     @JoinColumn
-    Driver driver;
+    private Driver driver;
 
-    public TripBooking() {
+    public Integer getTripBookingId() {
+        return tripBookingId;
     }
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
+    public void setTripBookingId(Integer tripBookingId) {
+        this.tripBookingId = tripBookingId;
     }
 
     public String getFromLocation() {
@@ -50,12 +48,20 @@ public class TripBooking {
         this.toLocation = toLocation;
     }
 
-    public int getDistance() {
-        return distance;
+    public int getDistanceInKm() {
+        return distanceInKm;
     }
 
-    public void setDistance(int distance) {
-        this.distance = distance;
+    public void setDistanceInKm(int distanceInKm) {
+        this.distanceInKm = distanceInKm;
+    }
+
+    public TripStatus getStatus() {
+        return status;
+    }
+
+    public void setStatus(TripStatus status) {
+        this.status = status;
     }
 
     public int getBill() {
@@ -80,13 +86,5 @@ public class TripBooking {
 
     public void setDriver(Driver driver) {
         this.driver = driver;
-    }
-
-    public TripStatus getTripStatus() {
-        return tripStatus;
-    }
-
-    public void setTripStatus(TripStatus tripStatus) {
-        this.tripStatus = tripStatus;
     }
 }

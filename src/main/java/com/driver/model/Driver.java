@@ -26,11 +26,11 @@ public class Driver {
 
     }
 
-    public int getId() {
+    public int getDriverId() {
         return driverId;
     }
 
-    public void setId(int driverId) {
+    public void setDriverId(int driverId) {
         this.driverId = driverId;
     }
 
@@ -48,14 +48,6 @@ public class Driver {
 
     public void setPassword(String password) {
         this.password = password;
-    }
-
-    public int getDriverId() {
-        return driverId;
-    }
-
-    public void setDriverId(int driverId) {
-        this.driverId = driverId;
     }
 
     public Cab getCab() {
