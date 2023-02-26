@@ -20,12 +20,10 @@ public class DriverServiceImpl implements DriverService {
 
 	@Override
 	public void register(String mobile, String password){
-		//Save a driver in the database having given details and a cab with ratePerKm as 10 and availability as True by default.
+		//Save a driver in the database having given details and a cab with ratePerKm as 10 and availability as True.
 		Driver driver = new Driver();
-
 		driver.setMobile(mobile);
 		driver.setPassword(password);
-
 		Cab cab = new Cab();
 		cab.setPerKmRate(10);
 		cab.setAvailable(Boolean.TRUE);
@@ -36,16 +34,23 @@ public class DriverServiceImpl implements DriverService {
 	@Override
 	public void removeDriver(int driverId){
 		// Delete driver without using deleteById function
-		driverRepository3.deleteById(driverId);
+		Driver driver = driverRepository3.findById(driverId).get();
+		driverRepository3.delete(driver);
 	}
 
 	@Override
 	public void updateStatus(int driverId){
-		//Set the status of respective car to unavailable
+		//Update the status of respective car to unavailable
+
+
+//		Driver driver = driverRepository3.findById(driverId).get();
+//		driver.getCab().setAvailable(Boolean.FALSE);
+//		driverRepository3.save(driver);
+
 		Driver driver = driverRepository3.findById(driverId).get();
 		Cab cab = driver.getCab();
-		cab.setAvailable(Boolean.FALSE);
 
+		cab.setAvailable(Boolean.FALSE);
 		cabRepository3.save(cab);
 	}
 }
